@@ -13,3 +13,13 @@
   border-radius: 15px;
   padding: 1em 4em;
 }
+
+.btn.size-medium {
+  font-size: 0.8rem;
+  padding: 1em 3em;
+}
+
+.btn.size-small {
+  font-size: 0.7rem;
+  padding: 1em 3em;
+}

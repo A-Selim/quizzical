@@ -1,0 +1,25 @@
+.question {
+  font-family: "Karla", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 2em;
+}
+
+.choice {
+  font-family: "Inter", sans-serif;
+  font-size: 0.8rem;
+  padding: 0.3em 2em;
+  border: 1.5px #4d5b9e solid;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.choice-radio {
+  display: none;
+}
+
+.choice-radio:checked + .choice {
+  background-color: #d6dbf5;
+  border: 1.5px transparent solid;
+}

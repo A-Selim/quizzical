@@ -1,0 +1,12 @@
+.question-wrapper {
+  width: 80%;
+  margin: 0 auto;
+  color: #293264;
+  border-bottom: 2px solid #dbdef0;
+  padding: 1em 0;
+}
+
+.answers-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
