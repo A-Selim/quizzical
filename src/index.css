@@ -14,6 +14,12 @@ body {
 
 .main {
   height: 100vh;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #293264;
 }
 
 .start-container {
@@ -22,11 +28,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.title,
-.subtitle-text {
-  color: #293264;
 }
 
 .title {

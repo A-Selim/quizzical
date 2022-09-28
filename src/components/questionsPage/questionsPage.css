@@ -1,7 +1,5 @@
 .question-wrapper {
   width: 80%;
-  margin: 0 auto;
-  color: #293264;
   border-bottom: 2px solid #dbdef0;
   padding: 1em 0;
 }
@@ -9,4 +7,17 @@
 .answers-wrapper {
   display: flex;
   justify-content: space-between;
+}
+
+.result-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.result-text {
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
 }
