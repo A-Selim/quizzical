@@ -102,9 +102,8 @@ export default function QuestionsPage() {
           <Button text="Play again" size="small" action={resetQuiz} />
         </div>
       ) : (
-        <Button text="Check answers" size="medium" action={handleCheck} />
+        questionWrapperElements.length > 0 && <Button text="Check answers" size="medium" action={handleCheck} />
       )}
     </>
   );
 }
-
