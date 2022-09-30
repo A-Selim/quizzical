@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../Button/Button";
-import { Question, Choice } from "../Question/Question";
+import Question from "../Question/Question";
+import Choice from "../Choice/Choice";
 import "./QuestionsPage.css";
 import { nanoid } from "nanoid";
 
