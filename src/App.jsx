@@ -1,6 +1,6 @@
 import React from "react";
-import Button from "./components/button/Button";
-import QuestionsPage from "./components/questionsPage/QuestionsPage";
+import Button from "./components/Button/Button";
+import QuestionsPage from "./components/QuestionsPage/QuestionsPage";
 
 export default function App() {
   const [quiz, setQuiz] = React.useState(false);

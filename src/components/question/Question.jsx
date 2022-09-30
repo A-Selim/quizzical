@@ -1,5 +1,5 @@
 import React from "react";
-import "./question.css";
+import "./Question.css";
 
 export function Question(props) {
   return (
@@ -28,4 +28,3 @@ export function Choice(props) {
     </>
   );
 }
-
