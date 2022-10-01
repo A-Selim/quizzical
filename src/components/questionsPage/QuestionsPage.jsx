@@ -44,7 +44,8 @@ export default function QuestionsPage() {
               key={nanoid(10)}
               select={handleSelect}
               checkedValue={element.userAnswer}
-              showCorrect={answer === element.correctAnswer && element.showCorrect}
+              showCorrect = {element.showCorrect}
+              correctAnswer={answer === element.correctAnswer}
             />
           ))}
         </div>

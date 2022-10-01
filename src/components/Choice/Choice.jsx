@@ -13,7 +13,12 @@ export default function Choice(props) {
         onChange={(event) => props.select(event)}
         checked={props.checkedValue === props.text}
       />
-      <label className={`choice ${props.showCorrect ? "correct-choice" : ""}`} htmlFor={props.answerId}>
+      <label
+        className={`choice ${
+          props.correctAnswer ? props.showCorrect && "correct-choice" : props.showCorrect && "wrong-choice"
+        }`}
+        htmlFor={props.answerId}
+      >
         {props.text}
       </label>
     </>
