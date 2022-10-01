@@ -46,7 +46,7 @@ export default function QuestionsPage() {
               select={handleSelect}
               checkedValue={element.userAnswer}
               showAnswer={showAnswer}
-              correctAnswer={answer === element.correctAnswer}
+              correctAnswer={decode(answer) === element.correctAnswer}
             />
           ))}
         </div>
