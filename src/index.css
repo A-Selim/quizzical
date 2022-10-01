@@ -20,6 +20,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   color: #293264;
+  background: url(./assets/yellow-blob.svg) top right no-repeat, url(./assets/blue-blob.svg) bottom left no-repeat;
 }
 
 .start-container {
