@@ -10,13 +10,11 @@ export default function Choice(props) {
         className="choice-radio"
         id={props.answerId}
         value={props.text}
-        onChange={(event) => props.select(event)}
+        onChange={() => props.select(props.questionId, props.text)}
         checked={props.checkedValue === props.text}
       />
       <label
-        className={`choice ${
-          props.correctAnswer ? props.showCorrect && "correct-choice" : props.showCorrect && "wrong-choice"
-        }`}
+        className={`choice ${props.showAnswer ? (props.correctAnswer ? "correct-choice" : "wrong-choice") : ""}`}
         htmlFor={props.answerId}
       >
         {props.text}

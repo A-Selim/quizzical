@@ -7,7 +7,7 @@ import { nanoid } from "nanoid";
 
 export default function QuestionsPage() {
   const [questions, setQuestions] = React.useState([]);
-  const [isAnswerShow, setIsAnswerShow] = React.useState(false);
+  const [showAnswer, setShowAnswer] = React.useState(false);
   const [score, setScore] = React.useState(0);
   const [playAgain, setPlayAgain] = React.useState(false);
 
@@ -23,7 +23,6 @@ export default function QuestionsPage() {
             answers: [result.correct_answer, ...result.incorrect_answers].sort(() => Math.random() - 0.5),
             correctAnswer: result.correct_answer,
             userAnswer: "",
-            showCorrect: false,
           };
         })
       );
@@ -44,7 +43,7 @@ export default function QuestionsPage() {
               key={nanoid(10)}
               select={handleSelect}
               checkedValue={element.userAnswer}
-              showCorrect = {element.showCorrect}
+              showAnswer={showAnswer}
               correctAnswer={answer === element.correctAnswer}
             />
           ))}
@@ -53,14 +52,14 @@ export default function QuestionsPage() {
     );
   });
 
-  function handleSelect(event) {
-    if (!isAnswerShow) {
+  function handleSelect(id, choiceText) {
+    if (!showAnswer) {
       setQuestions((oldQuestions) =>
         oldQuestions.map((question) => {
-          return question.id === event.target.name
+          return question.id === id
             ? {
                 ...question,
-                userAnswer: event.target.value,
+                userAnswer: choiceText,
               }
             : question;
         })
@@ -68,29 +67,18 @@ export default function QuestionsPage() {
     }
   }
 
-  function handleCheck() {
-    if (!isAnswerShow) {
-      setQuestions((oldQuestions) =>
-        oldQuestions.map((question) => {
-          return {
-            ...question,
-            showCorrect: true,
-          };
-        })
-      );
-
+  function checkAnswers() {
+    if (!showAnswer) {
       questions.forEach((question) => {
-        question.userAnswer === question.correctAnswer
-          ? setScore((oldScore) => oldScore + 1)
-          : setScore((oldScore) => oldScore + 0);
+        question.userAnswer === question.correctAnswer && setScore((oldScore) => oldScore + 1);
       });
     }
 
-    setIsAnswerShow(true);
+    setShowAnswer(true);
   }
 
   function resetQuiz() {
-    setIsAnswerShow(false);
+    setShowAnswer(false);
     setScore(0);
     setPlayAgain((prevState) => !prevState);
   }
@@ -98,13 +86,13 @@ export default function QuestionsPage() {
   return (
     <>
       {questionWrapperElements}
-      {isAnswerShow ? (
+      {showAnswer ? (
         <div className="result-wrapper">
           <p className="result-text">You scored {score}/5 correct answers</p>
           <Button text="Play again" size="small" action={resetQuiz} />
         </div>
       ) : (
-        questionWrapperElements.length > 0 && <Button text="Check answers" size="medium" action={handleCheck} />
+        questionWrapperElements.length > 0 && <Button text="Check answers" size="medium" action={checkAnswers} />
       )}
     </>
   );
