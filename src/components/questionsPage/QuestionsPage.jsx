@@ -3,6 +3,7 @@ import Button from "../Button/Button";
 import Question from "../Question/Question";
 import Choice from "../Choice/Choice";
 import "./QuestionsPage.css";
+import { decode } from "he";
 import { nanoid } from "nanoid";
 
 export default function QuestionsPage() {
@@ -40,7 +41,7 @@ export default function QuestionsPage() {
             <Choice
               questionId={element.id}
               answerId={nanoid(10)}
-              text={answer}
+              text={decode(answer)}
               key={nanoid(10)}
               select={handleSelect}
               checkedValue={element.userAnswer}
