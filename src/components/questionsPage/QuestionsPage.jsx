@@ -12,23 +12,24 @@ export default function QuestionsPage() {
   const [playAgain, setPlayAgain] = React.useState(false);
 
   React.useEffect(() => {
-    async function fetchData() {
-      const res = await fetch("https://opentdb.com/api.php?amount=5&category=11&difficulty=easy&type=multiple");
-      const data = await res.json();
-      setQuestions(
-        data.results.map((result) => {
-          return {
-            id: nanoid(10),
-            question: result.question,
-            answers: [result.correct_answer, ...result.incorrect_answers].sort(() => Math.random() - 0.5),
-            correctAnswer: result.correct_answer,
-            userAnswer: "",
-          };
-        })
-      );
-    }
     fetchData();
   }, [playAgain]);
+
+  async function fetchData() {
+    const res = await fetch("https://opentdb.com/api.php?amount=5&category=11&difficulty=easy&type=multiple");
+    const data = await res.json();
+    setQuestions(
+      data.results.map((result) => {
+        return {
+          id: nanoid(10),
+          question: decode(result.question),
+          answers: [result.correct_answer, ...result.incorrect_answers].sort(() => Math.random() - 0.5),
+          correctAnswer: decode(result.correct_answer),
+          userAnswer: "",
+        };
+      })
+    );
+  }
 
   const questionWrapperElements = questions.map((element) => {
     return (
