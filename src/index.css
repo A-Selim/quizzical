@@ -17,7 +17,7 @@ body {
   padding: 2em;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   color: #293264;
   background: url(./assets/yellow-blob.svg) top right no-repeat, url(./assets/blue-blob.svg) bottom left no-repeat;
