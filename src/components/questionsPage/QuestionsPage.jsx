@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../Button/Button";
 import Question from "../Question/Question";
 import Choice from "../Choice/Choice";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import "./QuestionsPage.css";
 import { decode } from "he";
 import { nanoid } from "nanoid";
@@ -11,6 +12,7 @@ export default function QuestionsPage() {
   const [showAnswer, setShowAnswer] = React.useState(false);
   const [score, setScore] = React.useState(0);
   const [playAgain, setPlayAgain] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
     fetchData();
@@ -30,6 +32,7 @@ export default function QuestionsPage() {
         };
       })
     );
+    setIsLoading(false);
   }
 
   const questionWrapperElements = questions.map((element) => {
@@ -82,19 +85,26 @@ export default function QuestionsPage() {
   function resetQuiz() {
     setShowAnswer(false);
     setScore(0);
+    setIsLoading(true);
     setPlayAgain((prevState) => !prevState);
   }
 
   return (
     <>
-      {questionWrapperElements}
-      {showAnswer ? (
-        <div className="result-wrapper">
-          <p className="result-text">You scored {score}/5 correct answers</p>
-          <Button text="Play again" size="small" action={resetQuiz} />
-        </div>
+      {isLoading ? (
+        <LoadingSpinner />
       ) : (
-        questionWrapperElements.length > 0 && <Button text="Check answers" size="medium" action={checkAnswers} />
+        <>
+          {questionWrapperElements}
+          {showAnswer ? (
+            <div className="result-wrapper">
+              <p className="result-text">You scored {score}/5 correct answers</p>
+              <Button text="Play again" size="small" action={resetQuiz} />
+            </div>
+          ) : (
+            <Button text="Check answers" size="medium" action={checkAnswers} />
+          )}
+        </>
       )}
     </>
   );
