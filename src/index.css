@@ -24,9 +24,19 @@ body {
   background-size: 20%;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 600px) {
   .main {
     background-size: initial;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 1.1rem;
+  }
+
+  .main {
+    padding: 1.5em;
   }
 }
 

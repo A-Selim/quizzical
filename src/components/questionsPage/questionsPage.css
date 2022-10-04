@@ -13,13 +13,13 @@
 @media (min-width: 1024px) {
   .question-wrapper,
   .result-wrapper {
-    width: 60%;
+    width: 70%;
   }
 }
 
 .question-wrapper {
   border-bottom: 2px solid #dbdef0;
-  padding: 1.5em 0;
+  padding: 1.3em 0;
 }
 
 .answers-wrapper {
@@ -43,9 +43,10 @@
   margin-bottom: 1em;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 600px) {
   .answers-wrapper {
     flex-direction: row;
+    align-items: stretch;
   }
 
   .result-wrapper {
