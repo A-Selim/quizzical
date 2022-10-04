@@ -13,4 +13,5 @@ Have fun and answer some questions about movies.
 ## Built with
 
 - ReactJS.
+- CSS
 - [Open Trivia API](https://opentdb.com/api_config.php).
